@@ -19,43 +19,43 @@ class MemoryMemberRepositoryTest {
 
     @Test
     public void save() {
-//given
+        //given
         Member member = new Member();
         member.setName("spring");
-//when
+        //when
         repository.save(member);
-//then
+        //then
         Member result = repository.findById(member.getId()).get();
         assertThat(result).isEqualTo(member);
     }
 
     @Test
     public void findByName() {
-//given
+        //given
         Member member1 = new Member();
         member1.setName("spring1");
         repository.save(member1);
         Member member2 = new Member();
         member2.setName("spring2");
         repository.save(member2);
-//when
+        //when
         Member result = repository.findByName("spring1").get();
-//then
+        //then
         assertThat(result).isEqualTo(member1);
     }
 
     @Test
     public void findAll() {
-//given
+        //given
         Member member1 = new Member();
         member1.setName("spring1");
         repository.save(member1);
         Member member2 = new Member();
         member2.setName("spring2");
         repository.save(member2);
-//when
+        //when
         List<Member> result = repository.findAll();
-//then
+        //then
         assertThat(result.size()).isEqualTo(2);
     }
 }
